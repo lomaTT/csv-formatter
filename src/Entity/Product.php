@@ -34,10 +34,10 @@ class Product
     #[ORM\Column(name: "dtmDiscontinued", type: "datetime", nullable: true)]
     private ?DateTime $dtmDiscontinued = null;
 
-    #[ORM\Column(name: "intStockLevel", type: "integer", nullable: true)]
+    #[ORM\Column(name: "intStockLevel", type: "integer", nullable: false)]
     private ?int $intStockLevel = null;
 
-    #[ORM\Column(name: "decPrice", type: "decimal", precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name: "decPrice", type: "decimal", precision: 10, scale: 2, nullable: false)]
     private ?float $decPrice = null;
 
     #[ORM\Column(name: "stmTimestamp", type: "datetime", nullable: false, options: ["default" => "CURRENT_TIMESTAMP", "update" => "CURRENT_TIMESTAMP"])]
