@@ -51,7 +51,7 @@ class ProductDTO
         return $this->strProductCode;
     }
 
-    public function setStrProductDataId(string $strProductCode): void
+    public function setStrProductCode(string $strProductCode): void
     {
         $this->strProductCode = $strProductCode;
     }
