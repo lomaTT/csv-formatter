@@ -3,13 +3,9 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use DateTime;
-use Doctrine\ORM\Mapping\Index;
+use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Product entity class mapped to the 'tblProductData' table.
- */
 #[ORM\Entity]
 #[ORM\Table(name: "tblProductData")]
 class Product

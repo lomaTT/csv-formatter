@@ -11,7 +11,7 @@ class ProductDTO
         column: 'Product Code',
         convertEmptyStringToNull: true
     )]
-    private ?string $intProductDataId;
+    private ?string $strProductCode;
 
     #[MapCell(
         column: 'Product Name',
@@ -46,14 +46,14 @@ class ProductDTO
     )]
     private ?string $isDiscontinued;
 
-    public function getIntProductDataId(): ?string
+    public function getStrProductCode(): ?string
     {
-        return $this->intProductDataId;
+        return $this->strProductCode;
     }
 
-    public function setIntProductDataId(string $intProductDataId): void
+    public function setStrProductDataId(string $strProductCode): void
     {
-        $this->intProductDataId = $intProductDataId;
+        $this->strProductCode = $strProductCode;
     }
 
     public function getStrProductName(): ?string
@@ -104,5 +104,31 @@ class ProductDTO
     public function setIsDiscontinued(string $isDiscontinued): void
     {
         $this->isDiscontinued = $isDiscontinued;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function validate(): void
+    {
+        if (!isset($this->strProductCode)) {
+            throw new \Exception('Product data id is required');
+        }
+
+        if (!isset($this->strProductName) || !is_string($this->strProductName)) {
+            throw new \Exception('Problem with product name. Possibly empty or not string.');
+        }
+
+        if (!isset($this->strProductDescription) || !is_string($this->strProductDescription)) {
+            throw new \Exception('Problem with product description. Possibly empty or not string.');
+        }
+
+        if (!isset($this->intStockLevel) || !is_int($this->intStockLevel)) {
+            throw new \Exception('Problem with stock level. Possibly empty or not integer.');
+        }
+
+        if (!isset($this->decPrice) || !is_float($this->decPrice)) {
+            throw new \Exception('Problem with dec_price. Possibly empty or not single decimal.');
+        }
     }
 }
